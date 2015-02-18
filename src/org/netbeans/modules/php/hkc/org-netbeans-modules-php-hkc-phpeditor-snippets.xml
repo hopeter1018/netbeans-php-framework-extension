@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE codetemplates PUBLIC "-//NetBeans//DTD Editor Code Templates settings 1.0//EN" "https://netbeans.org/dtds/EditorCodeTemplates-1_0.dtd">
+<codetemplates>
+    <codetemplate abbreviation="inh" xml:space="preserve">
+        <code><![CDATA[
+/**
+ * {@inheritdoc}
+ */]]></code>
+        <description><![CDATA[Code template "@inheritdoc.]]></description>
+    </codetemplate>
+    <codetemplate abbreviation="dtrans" xml:space="preserve">
+        <code><![CDATA[
+$conn = \HkcLibrary\DoctrineExtension\Connection::conn();
+try {
+    $dtConn->beginTransaction();
+    ${action}
+    ${selection}${cursor}
+    $dtConn->commit();
+} catch (${\Exception} $$${exc}) {
+    $dtConn->rollBack();
+    echo $$${exc editable=false}->getTraceAsString();
+}]]></code>
+        <description><![CDATA[Code template transaction]]></description>
+    </codetemplate>
+</codetemplates>
