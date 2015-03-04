@@ -41,7 +41,7 @@ public class AnnotationCompletionItem implements CompletionItem {
     private final String text;
     private final CodeCompleterUtils.PhpClassFile phpClass;
     private static final ImageIcon fieldIcon
-            = new ImageIcon(ImageUtilities.loadImage("org/netbeans/modules/php/zms5/UserAccessControl/icon.png", false));
+            = new ImageIcon(ImageUtilities.loadImage("org/netbeans/modules/php/hkc/UserAccessControl/icon.png", false));
     private static final Color fieldColor = Color.decode("0x000000");
     private final int caretOffset;
     private final int dotOffset;

@@ -38,14 +38,14 @@ public class GeneralCompletionItem implements CompletionItem {
     private final String groupName;
     private final CodeCompleterUtils.OptionsItem optionsItem;
     private static final ImageIcon fieldIcon
-            = new ImageIcon(ImageUtilities.loadImage("org/netbeans/modules/php/zms5/Utils/icon.png", false));
+            = new ImageIcon(ImageUtilities.loadImage("org/netbeans/modules/php/hkc/Utils/icon.png", false));
     private static final Color fieldColor = Color.decode("0x000000");
     private final int caretOffset;
     private final int dotOffset;
 
     public GeneralCompletionItem(boolean exists, String groupName, String text, CodeCompleterUtils.OptionsItem phpClass, int dotOffset, int caretOffset) {
         this.exists = exists;
-        this.groupName = "ZMS5 " + groupName;
+        this.groupName = "hkc " + groupName;
         this.insertText = text;
         this.text = text;
         this.optionsItem = phpClass;
@@ -55,7 +55,7 @@ public class GeneralCompletionItem implements CompletionItem {
 
     public GeneralCompletionItem(boolean exists, String groupName, String text, String insertText, CodeCompleterUtils.OptionsItem phpClass, int dotOffset, int caretOffset) {
         this.exists = exists;
-        this.groupName = "ZMS5 " + groupName;
+        this.groupName = "hkc " + groupName;
         this.text = text;
         this.insertText = insertText;
         this.optionsItem = phpClass;
