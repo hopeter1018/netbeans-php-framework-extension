@@ -41,7 +41,7 @@ public class AnnotationCompletionItem implements CompletionItem {
     private final String text;
     private final CodeCompleterUtils.PhpClassFile phpClass;
     private static final ImageIcon fieldIcon
-            = new ImageIcon(ImageUtilities.loadImage("org/netbeans/modules/php/hkc/UserAccessControl/icon.png", false));
+            = new ImageIcon(ImageUtilities.loadImage("org/netbeans/modules/php/hkc/icon.png", false));
     private static final Color fieldColor = Color.decode("0x000000");
     private final int caretOffset;
     private final int dotOffset;
@@ -65,9 +65,12 @@ public class AnnotationCompletionItem implements CompletionItem {
             doc.insertString(dotOffset, text + suffix, null);
             
             String docContent = doc.getText(0, dotOffset);
-            int useOffset = docContent.indexOf(";", docContent.indexOf("namespace "));
-            if (useOffset != -1) {
-                doc.insertString(2 + useOffset, "\r\nuse " + this.phpClass.namespaceString + "\\" + text.substring(1) + ";", null);
+            String statementUse = "use " + this.phpClass.namespaceString + "\\" + text.substring(1) + ";";
+            if (! docContent.contains(statementUse)) {
+                int useOffset = docContent.indexOf(";", docContent.indexOf("namespace "));
+                if (useOffset != -1) {
+                    doc.insertString(2 + useOffset, "\r\n" + statementUse, null);
+                }
             }
 
             Completion.get().hideAll();
